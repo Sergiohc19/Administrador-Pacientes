@@ -1,15 +1,16 @@
 import { useForm } from "react-hook-form";
 import { Error } from "./Error";
+import type { DraftPatient } from "../types/index";
 
 export default function PatientForm() {
   const {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm();
+  } = useForm<DraftPatient>();
 
-  const registerPatient = () => {
-    console.log("Nuevo paciente");
+  const registerPatient = (data: DraftPatient) => {
+    console.log(data);
   };
 
   return (
@@ -44,9 +45,9 @@ export default function PatientForm() {
             })}
           />
 
-          {errors.name && <Error> {errors.name?.message as string}</Error>}
+          {errors.name && <Error> {errors.name?.message}</Error>}
 
-          {errors.maxLength && <Error> {errors.name?.message as string}</Error>}
+          {errors.maxLength && <Error> {errors.name?.message}</Error>}
         </div>
 
         <div className="mb-5">
@@ -67,13 +68,9 @@ export default function PatientForm() {
             })}
           />
 
-          {errors.caretaker && (
-            <Error> {errors.caretaker?.message as string}</Error>
-          )}
+          {errors.caretaker && <Error> {errors.caretaker?.message}</Error>}
 
-          {errors.maxLength && (
-            <Error> {errors.caretaker?.message as string}</Error>
-          )}
+          {errors.maxLength && <Error> {errors.caretaker?.message}</Error>}
         </div>
 
         <div className="mb-5">
@@ -94,7 +91,7 @@ export default function PatientForm() {
             })}
           />
 
-          {errors.email && <Error> {errors.email?.message as string}</Error>}
+          {errors.email && <Error> {errors.email?.message}</Error>}
         </div>
 
         <div className="mb-5">
@@ -114,7 +111,7 @@ export default function PatientForm() {
             })}
           />
 
-          {errors.date && <Error> {errors.date?.message as string}</Error>}
+          {errors.date && <Error> {errors.date?.message}</Error>}
         </div>
 
         <div className="mb-5">
@@ -133,7 +130,7 @@ export default function PatientForm() {
               },
             })}
           />
-          {errors.symptoms && <Error> {errors.symptoms?.message as string}</Error>}
+          {errors.symptoms && <Error> {errors.symptoms?.message}</Error>}
         </div>
 
         <input
