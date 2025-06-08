@@ -50,7 +50,7 @@ export default function PatientForm() {
 
           {errors.name && <Error> {errors.name?.message}</Error>}
 
-          {errors.maxLength && <Error> {errors.name?.message}</Error>}
+          {/* {errors.maxLength && <Error> {errors.name?.message}</Error>} */}
         </div>
 
         <div className="mb-5">
@@ -73,7 +73,7 @@ export default function PatientForm() {
 
           {errors.caretaker && <Error> {errors.caretaker?.message}</Error>}
 
-          {errors.maxLength && <Error> {errors.caretaker?.message}</Error>}
+          {/* {errors.maxLength && <Error> {errors.caretaker?.message}</Error>} */}
         </div>
 
         <div className="mb-5">
@@ -108,7 +108,7 @@ export default function PatientForm() {
             {...register("date", {
               required: "La fecha de alta es obligatoria",
               maxLength: {
-                value: 8,
+                value: 22,
                 message: "Máximo 8 Caracteres",
               },
             })}
