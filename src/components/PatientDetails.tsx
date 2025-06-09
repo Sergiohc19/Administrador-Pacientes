@@ -21,7 +21,7 @@ const getPatientById = usePatientStore((state) => state.getPatientById);
       <PatientDetailItem label="Fecha Alta" data={patient.date.toString()} />
       <PatientDetailItem label="Sintomas" data={patient.symptoms} />
 
-      <div className="flex justify-between mt-10">
+      <div className="flex flex-col lg:flex-row gap-3 justify-between mt-10">
         <button className="py-2 px-10 bg-indigo-600 hover:bg-red-700 text-white font-bold uppercase rounded-lg"
         onClick={() => getPatientById(patient.id)}
        >Editar</button>
