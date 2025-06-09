@@ -9,11 +9,11 @@ export default function PatientForm() {
   const {
     register,
     handleSubmit,
-    formState: { errors },
-  } = useForm<DraftPatient>();
+    formState: { errors }, reset} = useForm<DraftPatient>();
 
   const registerPatient = (data: DraftPatient) => {
     addPatient(data)
+    reset()
   };
 
   return (
@@ -42,8 +42,8 @@ export default function PatientForm() {
             {...register("name", {
               required: "El nombre del paciente es obligatorio",
               maxLength: {
-                value: 8,
-                message: "Máximo 8 Caracteres",
+                value: 20,
+                message: "Máximo 20 Caracteres",
               },
             })}
           />
@@ -65,8 +65,8 @@ export default function PatientForm() {
             {...register("caretaker", {
               required: "El Propietario es obligatorio",
               maxLength: {
-                value: 8,
-                message: "Máximo 8 Caracteres",
+                value: 20,
+                message: "Máximo 20 Caracteres",
               },
             })}
           />
@@ -128,8 +128,8 @@ export default function PatientForm() {
             {...register("symptoms", {
               required: "Los sintomas son obligatorios",
               maxLength: {
-                value: 8,
-                message: "Máximo 8 Caracteres",
+                value: 80,
+                message: "Máximo 80 Caracteres",
               },
             })}
           />
