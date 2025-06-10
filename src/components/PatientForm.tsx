@@ -5,7 +5,7 @@ import { toast } from "react-toastify";
 import type { DraftPatient } from "../types/index";
 import { usePatientStore } from "../store/store";
 import { useEffect } from "react";
-import { Bounce } from "react-toastify/unstyled";
+
 
 export default function PatientForm() {
   const addPatient = usePatientStore((state) => state.addPatient);
@@ -37,19 +37,10 @@ export default function PatientForm() {
   const registerPatient = (data: DraftPatient) => {
     if (activeId) {
       updatePatient(data);
+      toast.success("Paciente Actualizado Correctamente");
     } else {
       addPatient(data);
-      toast.success("Paciente Registrado Correctamente", {
-position: "top-right",
-autoClose: 5004,
-hideProgressBar: false,
-closeOnClick: false,
-pauseOnHover: true,
-draggable: true,
-progress: undefined,
-theme: "light",
-transition: Bounce,
-});
+      toast.success("Paciente Registrado Correctamente")
       reset();
     }
   };
