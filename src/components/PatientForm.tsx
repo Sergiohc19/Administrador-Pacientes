@@ -1,8 +1,11 @@
+
 import { useForm } from "react-hook-form";
 import { Error } from "./Error";
+import { toast } from "react-toastify";
 import type { DraftPatient } from "../types/index";
 import { usePatientStore } from "../store/store";
 import { useEffect } from "react";
+import { Bounce } from "react-toastify/unstyled";
 
 export default function PatientForm() {
   const addPatient = usePatientStore((state) => state.addPatient);
@@ -36,14 +39,24 @@ export default function PatientForm() {
       updatePatient(data);
     } else {
       addPatient(data);
+      toast.success("Paciente Registrado Correctamente", {
+position: "top-right",
+autoClose: 5004,
+hideProgressBar: false,
+closeOnClick: false,
+pauseOnHover: true,
+draggable: true,
+progress: undefined,
+theme: "light",
+transition: Bounce,
+});
+      reset();
     }
-
-    reset();
   };
-
-  return (
-    <div className="md:w-1/2 lg:w-2/5 mx-5">
-      <h2 className="font-black text-3xl text-center">Seguimiento Pacientes</h2>
+  
+    return (
+      <div className="md:w-1/2 lg:w-2/5 mx-5">
+        <h2 className="font-black text-3xl text-center">Seguimiento Pacientes</h2>
 
       <p className="text-lg mt-5 text-center mb-10">
         Añade Pacientes y {""}

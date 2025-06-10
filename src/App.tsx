@@ -1,5 +1,7 @@
+import { ToastContainer } from "react-toastify";
 import PatientForm from "./components/PatientForm";
 import { PatientsList } from "./components/PatientsList";
+import "react-toastify/dist/ReactToastify.css";
 
 export const App = () => {
   return (
@@ -15,6 +17,10 @@ export const App = () => {
           <PatientsList />
         </div>
       </div>
+
+      <ToastContainer />
+      
+      
     </>
   );
 };
